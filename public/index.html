@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Live Chat</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="login-screen" class="centered">
+        <h2>Sign In</h2>
+        <input id="username" placeholder="Username" autocomplete="username">
+        <input id="password" type="password" placeholder="Password" autocomplete="current-password">
+        <button id="login-btn">Login</button>
+        <div id="login-error"></div>
+    </div>
+    <div id="chat-app" style="display:none;">
+        <div id="sidebar">
+            <h3>Users</h3>
+            <ul id="user-list"></ul>
+            <h3>Groups</h3>
+            <ul id="group-list"></ul>
+            <button id="create-group-btn">+ New Group</button>
+        </div>
+        <div id="main">
+            <div id="chat-header">
+                <span id="chat-title">Welcome!</span>
+            </div>
+            <div id="chat-window"></div>
+            <form id="chat-form" enctype="multipart/form-data">
+                <input id="chat-input" autocomplete="off" placeholder="Type a message..." />
+                <input type="file" id="file-upload" style="display:none;">
+                <button type="button" id="upload-btn" title="Attach file">📎</button>
+                <button>Send</button>
+            </form>
+        </div>
+    </div>
+    <div id="group-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-group-modal">&times;</span>
+            <h3>Create Group</h3>
+            <input id="group-name" placeholder="Group name">
+            <div id="group-users"></div>
+            <button id="create-group-confirm">Create</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
